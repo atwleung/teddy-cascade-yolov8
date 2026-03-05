@@ -19,15 +19,15 @@ offloading heavy inference to a GPU server.
 
 ------------------------------------------------------------------------
 
-ARCHITECTURE
+## ARCHITECTURE
 
 See diagram:
 
-docs/architecture.png
+![Architecture](docs/architecture.png)
 
 ------------------------------------------------------------------------
 
-REPO CONTENTS
+## REPO CONTENTS
 
 cascade_fast.py Runs the two-stage cascade on a video. Stage 2 can be
 local or HTTP API.
@@ -41,7 +41,7 @@ docs/ Diagrams and demo images.
 
 ------------------------------------------------------------------------
 
-REQUIREMENTS
+## REQUIREMENTS
 
 Python 3.10+ recommended
 
@@ -52,7 +52,7 @@ requirements.txt
 
 ------------------------------------------------------------------------
 
-STAGE 2 MODEL (best.pt)
+## STAGE 2 MODEL (best.pt)
 
 This repository does NOT include trained weights.
 
@@ -70,7 +70,7 @@ export MODEL_PATH=/path/to/best.pt
 
 ------------------------------------------------------------------------
 
-TRAIN YOUR OWN best.pt
+## TRAIN YOUR OWN best.pt
 
 You can train YOLOv8 using custom images and labels.
 
@@ -96,7 +96,7 @@ runs/detect/train/weights/best.pt
 
 ------------------------------------------------------------------------
 
-QUICKSTART
+## QUICKSTART
 
 Optional: rotate smartphone videos first
 
@@ -104,13 +104,13 @@ bash scripts/rotate_video.sh input.mp4 input_rot.mp4
 
 ------------------------------------------------------------------------
 
-RUN CASCADE WITH LOCAL STAGE 2 MODEL
+## RUN CASCADE WITH LOCAL STAGE 2 MODEL
 
 python cascade_fast.py -i input_rot.mp4 --stage2 best.pt
 
 ------------------------------------------------------------------------
 
-RUN STAGE 2 AS LOCAL API
+## RUN STAGE 2 AS LOCAL API
 
 Start API:
 
@@ -129,14 +129,14 @@ http://127.0.0.1:8000/predict --api-timeout 5
 
 ------------------------------------------------------------------------
 
-SAVE OUTPUT VIDEO
+## SAVE OUTPUT VIDEO
 
 python cascade_fast.py -i input_rot.mp4 --api
 http://127.0.0.1:8000/predict --api-timeout 5 -o out.mp4 --no-gui
 
 ------------------------------------------------------------------------
 
-DEPLOY STAGE 2 TO GPU SERVER
+## DEPLOY STAGE 2 TO GPU SERVER
 
 Example: Linode RTX 4000 Ada
 
@@ -158,7 +158,7 @@ secret_token
 
 ------------------------------------------------------------------------
 
-PERFORMANCE TIPS
+## PERFORMANCE TIPS
 
 The project includes several speed optimizations:
 
@@ -183,7 +183,7 @@ Use tracking to reduce Stage2 calls
 
 ------------------------------------------------------------------------
 
-TODO / FUTURE IMPROVEMENTS
+## TODO / FUTURE IMPROVEMENTS
 
 -   Deploy Stage2 to Linode RTX 4000 Ada GPU
 -   Add Dockerfile for Stage2 API
